@@ -1,8 +1,8 @@
 {
   "name": "COOPDGII",
   "version": "0.0.1",
-  "author": "Francisco Frias",
-  "homepage": "https://pupyfrias.com/",
+  "author": "Smerlyn Alejandro",
+  "homepage": "#",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
