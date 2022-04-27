@@ -1,0 +1,74 @@
+
+<app-back-button-custom title="Detalles de prestamos"></app-back-button-custom>
+<ion-content>
+  <ion-card>
+    <ion-list class="pr-20">
+      <ion-item>
+        <ion-label>
+          Id
+          <p class="mb-0">{{prestamo.idprestamo}}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          Descripcion
+          <p class="mb-0">{{prestamo.descripcion}}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          Monto
+          <p class="mb-0">RD$ {{prestamo.monto_prestamo}}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          Tasa de interés
+          <p class="mb-0"> {{prestamo.tasa_interes}}%</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          Balance
+          <p class="mb-0">RD$ {{prestamo.balance_prestamo}} </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          Cuotas
+          <p class="mb-0">RD$ {{prestamo.valor_cuota}} </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          Plazo
+          <p class="mb-0">{{prestamo.plazo}} </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          Interés calculado
+          <p class="mb-0">RD$ {{prestamo.monto_interes_calculado}} </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          Intereses Fin del mes
+          <p class="mb-0">RD$ {{prestamo.monto_intereses_fin_mes}}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          Fecha Incial
+          <p class="mb-0">{{prestamo.fecha_prestamo}}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>
+          Fecha Final
+          <p class="mb-0">{{prestamo.fecha_vencimiento}} </p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+</ion-content>

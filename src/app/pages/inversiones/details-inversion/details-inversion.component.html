@@ -1,0 +1,26 @@
+<app-back-button-custom title="Detalles de inversion"></app-back-button-custom>
+<ion-content>
+
+  <ion-card>
+    <ion-list class="pr-20">
+      <ion-item>
+        <ion-label>
+          Id
+          <p class="mb-0">{{inversion.idinversion}}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          Tipo
+          <p class="mb-0">{{inversion.tipo}}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label >
+          Balance
+          <p class="mb-0">RD$ {{inversion.balance_disponible}}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+</ion-content>

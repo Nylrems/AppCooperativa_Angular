@@ -1,0 +1,26 @@
+
+<app-back-button-custom title="Recuperar cuenta" ></app-back-button-custom>
+<ion-content [fullscreen]="true">
+  <div class="mt-5 mb-5 text-center">
+    <form [formGroup]="formGroup" #formDirective="ngForm" >
+      <div>
+        <mat-form-field appearance="outline" floatLabel="always" class="w-80">
+          <mat-label>Cédula</mat-label>
+          <input matInput type="number" formControlName="cedula" placeholder="40200000000" size="100">
+          <mat-icon matPrefix>account_circle</mat-icon>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline" floatLabel="always" class="w-80">
+          <mat-label>Correo Electrónico</mat-label>
+          <input matInput type="text" formControlName="email" placeholder="Ej. correo@ejemplo.com">
+          <mat-icon matPrefix>mail</mat-icon>
+        </mat-form-field>
+      </div>
+
+      <ion-button type="submit" [disabled]="formGroup.invalid" (click)="submit(formDirective)">Enviar</ion-button>
+      
+
+    </form>
+  </div>
+</ion-content>

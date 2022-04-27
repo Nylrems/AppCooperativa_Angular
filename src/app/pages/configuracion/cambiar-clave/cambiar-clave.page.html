@@ -1,0 +1,53 @@
+<app-back-button-custom title="Cambiar clave"></app-back-button-custom>
+<ion-content>
+  <div class="text-center mt-5 mb-5">
+    <form [formGroup]="formGroup">
+      <div>
+        <mat-form-field appearance="outline" floatLabel="always"  class="w-80">
+          <mat-label>Clave Actual</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" formControlName="claveActual">
+          <mat-icon matPrefix>key</mat-icon>
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-hint slot="end">{{claveActual.value?.length || 0}}/30</mat-hint>
+        </mat-form-field>
+      </div>
+
+        <div>
+          <mat-form-field appearance="outline" floatLabel="always"  class="w-80">
+            <mat-label>Clave nueva</mat-label>
+            <input matInput [type]="hidePassword ? 'password' : 'text'" maxlength="30" formControlName="claveNueva">
+            <mat-icon matPrefix>key</mat-icon>
+            <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hidePassword">
+              <mat-icon>{{hidePassword? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-hint slot="end">{{claveNueva.value?.length || 0}}/30</mat-hint>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field appearance="outline" floatLabel="always" class="w-80">
+            <mat-label>Verificar clave</mat-label>
+            <input matInput [type]="hideConfirmPassword ? 'password' : 'text'" #inputConfirmPassword maxlength="30"
+              formControlName="claveVerificar">
+              <mat-icon matPrefix>key</mat-icon>
+              <button mat-icon-button matSuffix (click)="hideConfirmPassword = !hideConfirmPassword"
+              [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideConfirmPassword">
+              <mat-icon>{{hideConfirmPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-hint slot="end">{{inputConfirmPassword.value?.length || 0}}/30</mat-hint>
+          </mat-form-field>
+          <div *ngIf="claveVerificar.errors?.['notMacth']">La Contraseña no coinciden</div>
+        </div>
+
+
+        <ion-button type="submit" [disabled]="formGroup.invalid" (click)="submit()">Cambiar Clave</ion-button>
+     
+    </form>
+  </div>
+
+
+</ion-content>

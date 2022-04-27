@@ -1,0 +1,78 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-content>
+        <ion-list id="inbox-list">
+          <ion-list-header>Bienvenido</ion-list-header>
+          <ion-note>{{usuario}}</ion-note>
+
+          <div *ngIf="cookie">
+            <ion-menu-toggle auto-hide="false" *ngFor="let p of authPages; let i = index">
+              <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false"
+                routerLinkActive="selected">
+                <!-- <mat-icon slot="start">{{p.icon}}</mat-icon> -->
+                <ion-icon slot="start" [name]="p.icon"></ion-icon>
+                <label> {{ p.title }}</label>
+              </ion-item>
+            </ion-menu-toggle>
+          </div>
+
+
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of pages; let i = index">
+            <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false"
+              routerLinkActive="selected">
+              <ion-icon slot="start" [name]="p.icon"></ion-icon>
+              <label> {{ p.title }} </label>
+            </ion-item>
+          </ion-menu-toggle>
+
+          <ion-menu-toggle auto-hide="false">
+            <ion-item lines="none" detail="false">
+              <ion-icon slot="start" name="moon"></ion-icon>
+              <ion-label style="font-weight: inherit !important;">
+                Modo Oscuro
+              </ion-label>
+              <ion-toggle (ionChange)="toggleChange($event)" slot="end" [checked]="checked">
+              </ion-toggle>
+            </ion-item>
+          </ion-menu-toggle>
+
+          <ion-menu-toggle auto-hide="false">
+            <ion-item routerDirection="root" [routerLink]="!cookie ?['/login']: ['/logout']" routerLinkActive="selected"
+              detail="false">
+              <ion-icon slot="start" [name]="!cookie ? 'log-in':'log-out' "></ion-icon>
+              <label *ngIf="!cookie"> Iniciar Sesión</label>
+              <label *ngIf="cookie"> Cerrar Sesión</label>
+            </ion-item>
+          </ion-menu-toggle>
+
+          <ion-menu-toggle auto-hide="false">
+            <ion-item lines="none" style="margin-top: 200px;">
+              <a href="https://www.facebook.com/coopdgii" target="blank" class="mr-5">
+                <ion-icon name="logo-facebook" size="large"></ion-icon>
+              </a>
+              <a href="https://www.instagram.com/coopdgii/" target="blank" class="mr-5">
+                <ion-icon name="logo-instagram" size="large"></ion-icon>
+              </a>
+              <a href="https://twitter.com/coopdgii" target="blank" class="mr-5">
+                <ion-icon name="logo-twitter" size="large"></ion-icon>
+              </a>
+              <a href="https://www.youtube.com/channel/UCVkAUVlHsArx1Y1u3ihZa2A/featured" target="blank" class="mr-5">
+                <ion-icon name="logo-youtube" size="large"></ion-icon>
+              </a>
+            </ion-item>
+
+
+
+
+          </ion-menu-toggle>
+
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+
+    <ion-router-outlet id="main-content">
+      <app-barra [tabsHide]="tabsHide"></app-barra>
+    </ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

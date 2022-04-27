@@ -1,0 +1,19 @@
+<app-menu [title]="title"></app-menu>
+
+<ion-content [fullscreen]="true">
+
+  <!-- BEGIN CUENTAS -->
+  <ion-card>
+    <ion-list>
+      <ion-item detail *ngFor="let item of cuentas; let last=last" [lines]="last? 'none': 'inset'"
+        [routerLink]="['/cuentas',item.idcuenta]">
+        <ion-label>
+          {{item.tipo}} / {{item.idcuenta}}
+          <p class="mb-0">RD$ {{item.balance_disponible}}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+  <!-- END CUENTAS -->
+
+</ion-content>

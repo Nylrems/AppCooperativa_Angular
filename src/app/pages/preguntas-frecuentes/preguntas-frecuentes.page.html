@@ -1,0 +1,17 @@
+<app-menu [title]="title"></app-menu>
+
+<ion-content [fullscreen]="true">
+
+    <ion-card *ngFor="let item of preguntas">
+        <ion-card-header>
+            <ion-card-title>
+                {{item.pregunta}}
+            </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            {{item.respuesta}}
+
+        </ion-card-content>
+    </ion-card>
+
+</ion-content>

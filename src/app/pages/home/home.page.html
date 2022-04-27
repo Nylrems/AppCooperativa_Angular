@@ -1,0 +1,79 @@
+<app-menu [title]="title"></app-menu>
+
+<ion-content [fullscreen]="true">
+
+
+  <!-- BEGIN CUENTAS -->
+  <ion-card *ngIf="cuentas.length >0">
+    <ion-list>
+      <ion-list-header>
+        <h2 class="mb-0 fw-500">Cuentas</h2>
+      </ion-list-header>
+      <ion-item detail *ngFor="let item of cuentas; let last=last" [lines]="last? 'none': 'inset'"
+        [routerLink]="['/cuentas',item.idcuenta]">
+        <ion-label>
+          {{toTitleCaseH(item.tipo)}} / {{item.idcuenta}}
+          <p class="mb-0">RD$ {{item.balance_disponible}}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+  <!-- END CUENTAS -->
+
+  <!-- BEGIN PRESTAMOS -->
+  <ion-card *ngIf="prestamos.length >0">
+    <ion-list>
+      <ion-list-header>
+        <h2 class="mb-0 fw-500">Prestamos</h2>
+      </ion-list-header>
+      <ion-item detail *ngFor="let item of prestamos; let last=last" [lines]="last? 'none': 'inset'"
+        [routerLink]="['/prestamos',item.idprestamo]">
+        <ion-label>
+          {{toTitleCaseH((item.descripcion).replace('PRESTAMOS ',''))}} / {{item.idprestamo}}
+          <p class="mb-0">RD$ {{item.balance_prestamo}}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+  <!-- END PRESTAMOS -->
+
+  <!-- BEGIN INVERSIONES -->
+  <ion-card *ngIf="prestamos.length >0 && cuentas.length >0">
+    <ion-list>
+      <ion-list-header>
+        <h2 class="mb-0 fw-500">Inversiones</h2>
+      </ion-list-header>
+      <ion-item detail *ngFor="let item of inversiones; let last=last" [lines]="last? 'none': 'inset'"
+        [routerLink]="['/inversiones',item.idinversion]">
+        <ion-label>
+          {{toTitleCaseH(item.tipo)}} / {{item.idinversion}}
+          <p class="mb-0">RD$ {{item.balance_disponible}}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+  <!-- END INVERSIONES -->
+
+  <!-- BEGIN NOTICIAS -->
+ 
+    <!-- <ion-card>
+      <ion-card-header>
+        <ion-card-title>
+          Noticias
+        </ion-card-title>
+      </ion-card-header>
+      <swiper #swiper [config]="config" class="p-3">
+        <ng-template swiperSlide *ngFor="let item of listNoticia ">
+          <a [href]="item.link">
+            <img [src]="item.imagen" class="radius-image obj-fit">
+            <h3 class="text-center mt-1"><strong>{{item.title}} </strong> </h3>
+            <p class="mb-0">{{item.excerpt}}</p>
+          </a>
+        </ng-template>
+      </swiper>
+    </ion-card> -->
+ 
+  <!-- END NOTICIAS -->
+
+
+</ion-content>

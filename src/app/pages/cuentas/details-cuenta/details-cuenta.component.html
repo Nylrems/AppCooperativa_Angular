@@ -1,0 +1,31 @@
+<app-back-button-custom title="Detalles de cuenta"></app-back-button-custom>
+
+<ion-content>
+  <ion-card>
+    <ion-list class="pr-20">
+      <ion-list-header>
+        <h4 class="mb-0 fw-500">
+          {{cuenta.tipo}} / {{cuenta.idcuenta}}
+        </h4>
+      </ion-list-header>
+      <ion-item>
+        <ion-label>
+          Balance
+          <p class="mb-0">RD$ {{cuenta.balance_disponible}}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          Último deposito
+          <p class="mb-0">RD$ {{cuenta.monto_ult_deposito}}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          Último retiro
+          <p class="mb-0">RD$ {{cuenta.monto_ult_retiro}} </p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+</ion-content>

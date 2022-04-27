@@ -1,0 +1,82 @@
+
+<app-back-button-custom title="Enviar solicitudes"></app-back-button-custom>
+<ion-content [fullscreen]="true">
+
+  <div class="text-center mt-5">
+    <form [formGroup]="formGroup" #formDirective="ngForm">
+      <div>
+        <mat-form-field appearance="outline" class="w-80">
+          <mat-label>Seleccione una Opción</mat-label>
+          <mat-select #select (selectionChange)="selectChange($event.value,formDirective)" formControlName="tipo">
+            <mat-option *ngFor="let item of models" [value]="item.id">
+              {{item.nombre}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div *ngIf="select.selected">
+        <div *ngFor="let item of patron">
+          <div *ngIf="item.tipo ==='file'; else second">
+
+            <mat-form-field appearance="outline" class="w-80" floatLabel="always">
+              <mat-label>{{item.nombre}}</mat-label>
+              <ngx-mat-file-input [formControlName]="item.nombre"></ngx-mat-file-input>
+            </mat-form-field>
+          </div>
+
+          <ng-template #second>
+
+            <div *ngIf="item.tipo ==='select'; else third">
+              <mat-form-field class="w-80" appearance="outline">
+                <mat-label>{{item.nombre}}</mat-label>
+                <mat-chip-list #chipList aria-label="Fruit selection">
+                  <mat-chip *ngFor="let chip of chipsList" (removed)="remove(chip)">
+                    {{chip.name}}
+                    <button matChipRemove>
+                      <mat-icon>cancel</mat-icon>
+                    </button>
+                  </mat-chip>
+                  <input placeholder="Añadir ..." [matChipInputFor]="chipList" [matChipInputAddOnBlur]="addOnBlur"
+                    (matChipInputTokenEnd)="add($event)" [formControlName]="item.nombre">
+                </mat-chip-list>
+              </mat-form-field>
+            </div>
+
+
+          </ng-template>
+
+          <ng-template #third>
+            <div *ngIf="item.tipo ==='textarea'; else fourth">
+              <mat-form-field appearance="outline" class="w-80">
+                <mat-label>{{item.nombre}}</mat-label>
+                <textarea matInput [formControlName]="item.nombre" rows="10"> </textarea>
+              </mat-form-field>
+            </div>
+
+          </ng-template>
+
+          <ng-template #fourth>
+            <mat-form-field appearance="outline" floatLabel="always" class="w-80">
+              <mat-label>{{item.nombre}}</mat-label>
+              <input matInput [type]="item.tipo" [formControlName]="item.nombre">
+            </mat-form-field>
+
+
+          </ng-template>
+
+        </div>
+      </div>
+
+
+
+
+      <ion-button type="submit" (click)="sendSolicitud(formDirective)" class="mb-5" [disabled]="formGroup.invalid">
+        Enviar Sugerencia
+      </ion-button>
+    </form>
+
+  </div>
+
+
+</ion-content>

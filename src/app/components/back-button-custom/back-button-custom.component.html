@@ -1,0 +1,12 @@
+<ion-header translucent>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button text="Atrás" default-href (click)="back()" *ngIf="activeMode === 'ios'; else ShowMd">
+      </ion-back-button>
+      <ng-template #ShowMd>
+        <ion-back-button default-href (click)="back()" ></ion-back-button>
+      </ng-template>
+    </ion-buttons>
+    <ion-title>{{title}}</ion-title>
+  </ion-toolbar>
+</ion-header>

@@ -1,0 +1,24 @@
+.file{
+    --side-width: 100%;
+    --border: 1px solid var(--ion-item-border-color, var(--ion-border-color, var(--ion-color-step-150, rgba(0, 0, 0, 0.13))));
+    --side-min-width: 270px;
+    --side-max-width: 28%;
+    --background: var(--ion-background-color, #fff);
+    --color: var(--ion-text-color, #000);
+    --padding-top: 0px;
+    --padding-bottom: 0px;
+    --padding-start: 0px;
+    --padding-end: 0px;
+    --keyboard-offset: 0px;
+    --overflow: auto;
+    visibility: inherit;
+    --offset-top: 0px;
+    --offset-bottom: 57px;
+    text-align: center !important;
+    font: inherit;
+    color: inherit;
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+}
+
+

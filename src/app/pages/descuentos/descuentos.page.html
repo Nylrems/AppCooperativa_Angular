@@ -1,0 +1,25 @@
+<app-menu [title]="title"></app-menu>
+
+<ion-content [fullscreen]="true">
+  
+  <ion-card *ngFor="let item of descuentos; ">
+    
+    <ion-list class="pr-20">
+      <ion-list-header> 
+        <h2 class="mb-0 fw-500">{{item.mes}}</h2>
+      </ion-list-header>
+      <ion-item *ngFor="let data of item.list; let last= last" 
+      [lines]="last ?'none': 'undefined'"  shape="round">
+        <ion-label>
+           {{data.descripcion}}
+           <p class="mb-0">{{data.fecha_aplicacion}}</p>
+        </ion-label>
+        <ion-label slot="end">
+          RD$ {{data.monto}}
+        </ion-label>
+       
+      </ion-item>
+    </ion-list>
+  </ion-card>
+  
+</ion-content>

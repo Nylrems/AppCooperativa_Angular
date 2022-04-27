@@ -1,0 +1,19 @@
+<app-menu [title]="title"></app-menu>
+<ion-content [fullscreen]="true">
+
+
+  <!-- BEGIN PRESTAMOS -->
+  <ion-card>
+    <ion-list class="pr-20">
+      <ion-item detail *ngFor="let item of prestamos; let last=last" [lines]="last? 'none': 'inset'"
+        [routerLink]="['/prestamos',item.idprestamo]">
+        <ion-label>
+          {{toTitleCase((item.descripcion).replace('PRESTAMOS ',''))}} / {{item.idprestamo}}
+          <p class="mb-0">RD$ {{item.balance_prestamo}}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <!-- END PRESTAMOS -->
+</ion-content>

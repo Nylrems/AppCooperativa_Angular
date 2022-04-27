@@ -1,0 +1,18 @@
+<app-menu [title]="title"></app-menu>
+<ion-content [fullscreen]="true">
+    
+    <!-- BEGIN INVERSIONES -->
+    <ion-card>
+      <ion-list>
+        <ion-item detail *ngFor="let item of inversiones; let last=last" [lines]="last? 'none': 'inset'"
+          [routerLink]="['/inversiones',item.idinversion]">
+          <ion-label>
+            {{toTitleCase(item.tipo)}} / {{item.idinversion}}
+            <p class="mb-0">RD$ {{item.balance_disponible}}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+    <!-- END INVERSIONES -->
+
+</ion-content>

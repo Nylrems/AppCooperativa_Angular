@@ -1,0 +1,41 @@
+<app-menu [title]="title"></app-menu>
+<ion-content [fullscreen]="true">
+  
+
+  <div class="text-center mt-5 mb-5">
+    <div class="logo">
+      <ion-img  [src]="['../../../assets/images/icon.png']" loading="lazy"></ion-img>
+    </div>
+
+    <form [formGroup]="formGroup">
+      <div>
+        <mat-form-field appearance="outline" floatLabel="always">
+          <mat-label>Cédula</mat-label>
+          <input matInput type="number" formControlName="id" placeholder="40200000000" size="100">
+          <mat-icon matPrefix>account_circle</mat-icon>
+          <mat-hint slot="end">{{id.value.toString()?.length || 0}}/11</mat-hint>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline" floatLabel="always">
+          <mat-label>Contraseña</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+          <mat-icon matPrefix>key</mat-icon>
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-hint slot="end">{{password.value?.length || 0}}/30</mat-hint>
+        </mat-form-field>
+      </div>
+  
+      <ion-button type="submit" [disabled]="formGroup.invalid" (click)="handleButtonClick()">INICIAR SESIÓN</ion-button>
+      <div class="pt-5">
+        <a class="text-center " [routerLink]="['/recuperar-cuenta']">¿Tienes problema para iniciar sesión?</a>
+      </div>
+      
+    </form>
+  </div>
+
+
+</ion-content>
